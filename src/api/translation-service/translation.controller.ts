@@ -1,17 +1,14 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { TranslationService } from './translation.service';
-
-class TranslationDto {
-  text: string;
-}
+import { TranslationDto } from './translation.types';
 
 @Controller('api')
 export class TranslationController {
   constructor(private readonly translationService: TranslationService) {}
 
   @Post('/translation')
-  async translateToItalian(@Body() dto: TranslationDto) {
-    const translation = await this.translationService.translateToItalian(dto.text);
+  async translate(@Body() dto: TranslationDto) {
+    const translation = await this.translationService.translate(dto.text, dto.targetLanguage);
     return { translation };
   }
 } 

@@ -2,6 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { ChatOpenAI } from "@langchain/openai";
 import { HumanMessage, SystemMessage } from "@langchain/core/messages";
 import 'dotenv/config';
+import { TargetLanguage } from './translation.types';
 
 @Injectable()
 export class TranslationService {
@@ -14,9 +15,9 @@ export class TranslationService {
     });
   }
 
-  async translateToItalian(text: string): Promise<string> {
+  async translate(text: string, targetLanguage: TargetLanguage): Promise<string> {
     const messages = [
-      new SystemMessage("Translate the following from English into Italian"),
+      new SystemMessage(`Translate the following from English into ${targetLanguage}`),
       new HumanMessage(text),
     ];
 
