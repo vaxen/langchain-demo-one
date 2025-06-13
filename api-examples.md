@@ -84,6 +84,26 @@ Example:
 curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Return all of the user for corporation-b"}'
 ```
 
+```bash
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Return all of the user for corporation-b with the name that starts with a"}'
+```
+
+```bash
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Find all of the users with the name starting with v and belongs to corporation-a"}'
+```
+
+```bash
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Return all of the user for corporation-b"}'
+```
+
+```bash
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Get all the users"}'
+```
+
+```bash
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Find all of the users that contains ca in their name"}'
+```
+
 Response:
 
 ```json
