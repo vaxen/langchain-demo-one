@@ -21,7 +21,7 @@ npm start
 
 # User Database with Random Data
 
-This project sets up a PostgreSQL database with a users table and provides functionality to generate random user data.
+This project sets up a PostgreSQL database with a users table and provides functionality to generate random user data using database migrations.
 
 ## Setup
 
@@ -35,9 +35,17 @@ npm install
 docker-compose up -d
 ```
 
-3. Generate random data:
+3. Generate random data using a migration:
 ```bash
-npm run generate-data
+npm run migration:run
+```
+This will insert 100 random users into the database.
+
+### Revert and Re-run the Migration
+If you want to remove the generated users and re-run the migration:
+```bash
+npm run migration:revert
+npm run migration:run
 ```
 
 ## How to Start the Database and Add Records
@@ -54,14 +62,6 @@ This will start a PostgreSQL database in a Docker container, accessible at:
 - Database: userdb
 - Username: postgres
 - Password: postgres
-
-### Add Random User Records
-After the database is running, you can populate it with 100 random user records by running:
-
-```bash
-npm run generate-data
-```
-This script will connect to the running database and insert 100 users with random names, organizations, creation dates, and addresses.
 
 ### Verify the Data
 To check that the data was added, you can run the following command:

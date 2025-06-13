@@ -70,4 +70,27 @@ Note: For better readability of JSON responses, you can pipe the output through 
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello World", "algorithm": "caesar"}' \
   http://localhost:3000/api/encrypt | json_pp
+```
+
+## Natural Language Query Agent
+
+### Get Users by Organization
+
+To retrieve users belonging to a specific organization, send a POST request to `/api/nlq/users` with the organization name in the request body.
+
+Example:
+
+```bash
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Return all of the user for corporation-b"}'
+```
+
+Response:
+
+```json
+{
+  "users": [
+    { "id": 1, "name": "Alice", "org": "corporation-b", "creation_date": "2023-01-01", "address": "123 Main St" },
+    { "id": 2, "name": "Bob", "org": "corporation-b", "creation_date": "2023-02-01", "address": "456 Oak Ave" }
+  ]
+}
 ``` 
