@@ -10,11 +10,11 @@ export class EssayService {
   private graderModel: ChatOpenAI;
 
   constructor() {
-    this.writerModel = new ChatOpenAI({ 
+    this.writerModel = new ChatOpenAI({
       modelName: "gpt-3.5-turbo",
       temperature: 0.7
     });
-    this.graderModel = new ChatOpenAI({ 
+    this.graderModel = new ChatOpenAI({
       modelName: "gpt-3.5-turbo",
       temperature: 0.7
     });
@@ -22,7 +22,7 @@ export class EssayService {
 
   async generateEssay(author: string): Promise<EssayResponseDto> {
     const iterations: IterationResult[] = [];
-    
+
     // First iteration
     const firstEssay = await this.generateEssayContent(author);
     const firstFeedback = await this.getFeedback(firstEssay);
@@ -30,7 +30,7 @@ export class EssayService {
       essay: firstEssay,
       feedback: firstFeedback
     });
-    
+
     // Second iteration with feedback
     const secondEssay = await this.generateEssayContent(author, firstFeedback);
     const secondFeedback = await this.getFeedback(secondEssay);
@@ -70,4 +70,4 @@ export class EssayService {
     const response = await this.graderModel.invoke(messages);
     return response.content.toString();
   }
-} 
+}

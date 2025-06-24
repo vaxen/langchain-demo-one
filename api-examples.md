@@ -8,12 +8,15 @@ Translate text to different languages.
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello, how are you?", "targetLanguage": "japanese"}' \
   http://localhost:3000/api/translation
-
+```
+```bash
 # Translate to Spanish
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello, how are you?", "targetLanguage": "spanish"}' \
   http://localhost:3000/api/translation
+```
 
+```bash
 # Translate to French
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello, how are you?", "targetLanguage": "french"}' \
@@ -23,23 +26,26 @@ curl -X POST -H "Content-Type: application/json" \
 ## Encryption API
 Encrypt text using different algorithms.
 
-```bash
 # Caesar cipher encryption
+```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello World", "algorithm": "caesar"}' \
   http://localhost:3000/api/encrypt
-
+```
 # Reverse text encryption
+```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello World", "algorithm": "reverse"}' \
   http://localhost:3000/api/encrypt
-
+```
 # Base64 encryption
+```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello World", "algorithm": "base64"}' \
   http://localhost:3000/api/encrypt
-
+```
 # ROT13 encryption
+```bash
 curl -X POST -H "Content-Type: application/json" \
   -d '{"text":"Hello World", "algorithm": "rot13"}' \
   http://localhost:3000/api/encrypt
@@ -53,12 +59,16 @@ Generate essays about British authors with feedback.
 curl -X POST -H "Content-Type: application/json" \
   -d '{"author":"Jane Austen"}' \
   http://localhost:3000/api/essay
+```
 
+```bash
 # Generate essay about Charles Dickens
 curl -X POST -H "Content-Type: application/json" \
   -d '{"author":"Charles Dickens"}' \
   http://localhost:3000/api/essay
+```
 
+```bash
 # Generate essay about William Shakespeare
 curl -X POST -H "Content-Type: application/json" \
   -d '{"author":"William Shakespeare"}' \
@@ -76,7 +86,7 @@ curl -X POST -H "Content-Type: application/json" \
 
 ### Get Users by Organization
 
-To retrieve users belonging to a specific organization, send a POST request to `/api/nlq/users` with the organization name in the request body.
+To retrieve users querying using natural language, send a POST request to `/api/nlq/users` with the organization name in the request body.
 
 Example:
 
@@ -89,7 +99,7 @@ curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/j
 ```
 
 ```bash
-curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "Find all of the users with the name starting with v and belongs to corporation-a"}'
+curl -X POST http://localhost:3000/api/nlq/users -H "Content-Type: application/json" -d '{"query": "get all of the users with the name starting with v and belongs to corporation-a"}'
 ```
 
 ```bash
